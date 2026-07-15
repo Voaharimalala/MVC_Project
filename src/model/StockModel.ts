@@ -1,7 +1,7 @@
 export interface Article {
   id: number;
   nom: string;
-  categorie: string;
+  dateAjout: string;
   stockInitial: number;
   stockVendu: number;
   stockFinal: number;
