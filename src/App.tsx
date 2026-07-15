@@ -1,16 +1,24 @@
+import { Routes, Route } from "react-router-dom";
+
 import EtatStock from "./views/EtatStock";
 import AddArticle from "./views/AddArticle";
-import "./App.css";
 
 function App() {
+
   return (
-    <>
-      <h1>Gestion de Stock</h1>
+    <Routes>
 
-      <AddArticle />
+      <Route 
+        path="/" 
+        element={<EtatStock />} 
+      />
 
-      <EtatStock />
-    </>
+      <Route 
+        path="/ajouter-article" 
+        element={<AddArticle />} 
+      />
+
+    </Routes>
   );
 }
 
