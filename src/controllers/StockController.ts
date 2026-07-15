@@ -1,4 +1,4 @@
-import { type Article } from "../model/StockModel";
+import { type Article } from "../models/StockModel";
 
 const donnees = [
   {

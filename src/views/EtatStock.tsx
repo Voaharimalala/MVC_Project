@@ -12,9 +12,9 @@ import "./EtatStock.css";
 
 import {
   getArticles,
-} from "../controller/StockController";
+} from "../controllers/StockController";
 
-import { type Article } from "../model/StockModel";
+import { type Article } from "../models/StockModel";
 
 
 function EtatStock() {
@@ -187,7 +187,7 @@ function EtatStock() {
 
 
                 <td>
-                  {article.categorie}
+                  {article.dateAjout}
                 </td>
 
 
