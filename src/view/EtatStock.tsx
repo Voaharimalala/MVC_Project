@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { getArticles } from "../controller/ListeArticleController";
 
 import {
   FaPlus,
@@ -10,77 +11,96 @@ import {
 
 import "./EtatStock.css";
 
-import {
-  getArticles,
-} from "../controller/StockController";
-
 import { type Article } from "../model/StockModel";
 
 
 function EtatStock() {
 
+
   const navigate = useNavigate();
 
 
+
   const [listeArticles, setListeArticles] = useState<Article[]>(
+
     getArticles()
+
   );
+
 
 
   const [recherche, setRecherche] = useState("");
 
 
-  // =========================
-  // RECHERCHE
-  // =========================
+
+
+  // FILTRAGE RECHERCHE
 
   const articlesFiltres = listeArticles.filter((article) =>
+
     article.nom.toLowerCase().includes(recherche.toLowerCase())
+
   );
 
 
-  // =========================
-  // SUPPRESSION
-  // =========================
 
-  const supprimer = (id: number) => {
+
+
+  // SUPPRESSION
+
+  const supprimer = (id:number)=>{
+
 
     const confirmation = window.confirm(
+
       "Voulez-vous vraiment supprimer cet article ?"
+
     );
 
 
-    if (!confirmation) return;
+    if(!confirmation) return;
+
 
 
     setListeArticles(
+
       listeArticles.filter(
-        (article) => article.id !== id
+
+        (article)=>article.id !== id
+
       )
+
     );
+
 
   };
 
 
 
+
+
   return (
+
 
     <div className="stock-page">
 
 
-      {/* TITRE */}
 
       <div className="header-page">
 
+
         <h1>
+
           Suivi du Stock
+
         </h1>
+
 
       </div>
 
 
 
-      {/* RECHERCHE */}
+
 
       <div className="toolbar">
 
@@ -99,9 +119,12 @@ function EtatStock() {
 
             value={recherche}
 
-            onChange={(e) =>
+            onChange={(e)=>
+
               setRecherche(e.target.value)
+
             }
+
 
           />
 
@@ -115,9 +138,10 @@ function EtatStock() {
 
 
 
-      {/* TABLEAU */}
+
 
       <table className="stock-table">
+
 
 
         <thead>
@@ -139,6 +163,8 @@ function EtatStock() {
             <th>
               Stock Initial
             </th>
+
+
             <th>
               Stock Vendu
             </th>
@@ -163,36 +189,86 @@ function EtatStock() {
 
 
         </thead>
-        <tbody>
-          {
 
-            articlesFiltres.map((article) => (
+
+
+
+
+
+        <tbody>
+
+
+
+        {
+
+          articlesFiltres.length === 0 ? (
+
+
+            <tr>
+
+
+              <td colSpan={7}>
+
+                Aucun article disponible
+
+              </td>
+
+
+            </tr>
+
+
+          ) : (
+
+
+            articlesFiltres.map((article)=>(
+
 
 
               <tr key={article.id}>
 
 
                 <td>
+
                   {article.nom}
+
                 </td>
 
 
+
+
                 <td>
-                  {article.dateAjout}
+
+                  {article.dateAjout ?? "Non définie"}
+
                 </td>
 
 
+
+
                 <td>
+
                   {article.stockInitial}
+
                 </td>
+
+
+
+
                 <td>
+
                   {article.stockVendu}
+
                 </td>
+
+
 
 
                 <td>
+
                   {article.stockFinal}
+
                 </td>
+
 
 
 
@@ -208,13 +284,17 @@ function EtatStock() {
 
                       ? "badge disponible"
 
+
                       : article.statut === "Stock faible"
 
                       ? "badge faible"
 
+
                       : "badge rupture"
 
+
                     }
+
 
                   >
 
@@ -223,43 +303,65 @@ function EtatStock() {
 
 
                   </span>
+
+
                 </td>
+
+
+
+
+
+
+
                 <td>
+
+
                   <div className="actions">
-                    {/* MODIFIER */}
+
 
                     <button
 
                       className="edit-btn"
 
-                      onClick={() =>
+                      onClick={()=>
+
+
                         alert(
+
                           "Le formulaire de modification sera ajouté plus tard."
+
                         )
+
+
                       }
 
                     >
+
 
                       <FaEdit />
 
 
                     </button>
-                    {/* SUPPRIMER */}
+
+
+
+
+
 
                     <button
 
                       className="delete-btn"
 
-                      onClick={() =>
-                        supprimer(article.id)
-                      }
+                      onClick={()=>supprimer(article.id)}
 
                     >
+
 
                       <FaTrash />
 
 
                     </button>
+
 
 
 
@@ -270,17 +372,23 @@ function EtatStock() {
 
 
 
+
               </tr>
 
 
 
             ))
 
-          }
+
+          )
+
+
+        }
 
 
 
         </tbody>
+
 
 
       </table>
@@ -290,24 +398,40 @@ function EtatStock() {
 
 
 
-      {/* BOUTON AJOUT EN BAS */}
-
-
       <div className="bottom-button">
+
+
         <button
 
           className="add-btn"
 
-          onClick={() =>
-            navigate("/ajouter-article")
-          }
+          onClick={()=>navigate("/ajouter-article")}
+
 
         >
+
+
           <FaPlus />
+
+
           Ajouter un nouvel article
+
+
         </button>
+
+
       </div>
+
+
+
     </div>
+
+
   );
+
+
 }
+
+
+
 export default EtatStock;

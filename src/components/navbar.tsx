@@ -40,12 +40,12 @@ function Navbar() {
         Recettes
       </NavLink>
       <NavLink
-        to="/recettes"
+        to="/historique"
         className={({ isActive }) =>
           isActive ? "nav-link active" : "nav-link"
-        }
-      >
-        Historique
+      }
+    >
+      Historique
       </NavLink>
     </nav>
   );

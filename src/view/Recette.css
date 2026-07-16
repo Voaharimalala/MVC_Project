@@ -1,0 +1,82 @@
+.recette-page{
+
+    padding:30px;
+
+}
+
+
+.header-page h1{
+
+    color:#0b1f4d;
+
+}
+
+
+
+.cards{
+
+    display:flex;
+
+    gap:20px;
+
+    margin:25px 0;
+
+}
+
+
+
+.card{
+
+    background:#0b1f4d;
+
+    color:white;
+
+    padding:20px;
+
+    border-radius:10px;
+
+    width:250px;
+
+}
+
+
+.card p{
+
+    font-size:25px;
+
+    font-weight:bold;
+
+}
+
+
+
+
+.recette-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+
+
+.recette-table th{
+
+    background:#0b1f4d;
+
+    color:white;
+
+    padding:12px;
+
+}
+
+
+
+.recette-table td{
+
+    padding:12px;
+
+    border-bottom:1px solid #ddd;
+
+}
