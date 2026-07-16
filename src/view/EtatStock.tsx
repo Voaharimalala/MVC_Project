@@ -132,15 +132,13 @@ function EtatStock() {
 
 
             <th>
-              Catégorie
+              Date d'ajout
             </th>
 
 
             <th>
               Stock Initial
             </th>
-
-
             <th>
               Stock Vendu
             </th>
@@ -165,14 +163,7 @@ function EtatStock() {
 
 
         </thead>
-
-
-
-
-
         <tbody>
-
-
           {
 
             articlesFiltres.map((article) => (
@@ -187,15 +178,13 @@ function EtatStock() {
 
 
                 <td>
-                  {article.categorie}
+                  {article.dateAjout}
                 </td>
 
 
                 <td>
                   {article.stockInitial}
                 </td>
-
-
                 <td>
                   {article.stockVendu}
                 </td>
@@ -234,20 +223,9 @@ function EtatStock() {
 
 
                   </span>
-
-
                 </td>
-
-
-
-
-
                 <td>
-
-
                   <div className="actions">
-
-
                     {/* MODIFIER */}
 
                     <button
@@ -266,11 +244,6 @@ function EtatStock() {
 
 
                     </button>
-
-
-
-
-
                     {/* SUPPRIMER */}
 
                     <button
@@ -321,8 +294,6 @@ function EtatStock() {
 
 
       <div className="bottom-button">
-
-
         <button
 
           className="add-btn"
@@ -332,8 +303,6 @@ function EtatStock() {
           }
 
         >
-
-
           <FaPlus />
           Ajouter un nouvel article
         </button>
@@ -341,6 +310,4 @@ function EtatStock() {
     </div>
   );
 }
-
-
 export default EtatStock;

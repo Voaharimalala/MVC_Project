@@ -1,50 +1,69 @@
-import {type Article } from "../model/ArticleModel";
+import { type Article } from "../model/ArticleModel";
 
 
-export const articles: Article[] = [
-
+const articlesInitiaux: Article[] = [
     {
         id: 1,
         nom: "Ordinateur portable",
-        prix: 2500000
+        prix: 2500000,
+        dateAjout: "2023-01-15",
     },
-
     {
         id: 2,
         nom: "Clavier mécanique",
-        prix: 150000
+        prix: 150000,
+        dateAjout: "2023-01-16",
     },
-
-    {
+     {
         id: 3,
-        nom: "Souris sans fil",
-        prix: 80000
+        nom: "Casque audio",
+        prix: 150000,
+        dateAjout: "2023-01-16",
     },
-
-    {
-        id: 4,
-        nom: "Écran LED",
-        prix: 900000
-    },
-
-    {
-        id: 5,
-        nom: "Imprimante",
-        prix: 750000
-    },
-
-    {
-        id: 6,
-        nom: "Disque dur externe",
-        prix: 250000
-    }
-
 ];
 
 
 
-export const getArticles = (): Article[] => {
+export function getArticles(): Article[] {
 
-    return articles;
 
-};
+    const data = localStorage.getItem("articles");
+
+
+    if(data){
+
+        return JSON.parse(data);
+
+    }
+
+
+    localStorage.setItem(
+        "articles",
+        JSON.stringify(articlesInitiaux)
+    );
+
+
+    return articlesInitiaux;
+
+}
+
+
+
+
+
+export function addArticle(article: Article): void {
+
+
+    const articles = getArticles();
+
+
+    articles.push(article);
+
+
+    localStorage.setItem(
+        "articles",
+        JSON.stringify(articles)
+    );
+
+
+}

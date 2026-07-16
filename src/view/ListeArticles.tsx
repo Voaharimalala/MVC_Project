@@ -9,9 +9,7 @@ import {
     FaHdd
 } from "react-icons/fa";
 
-
 import "./ListeArticles.css";
-
 
 import { getArticles } from "../controller/ArticleController";
 
@@ -19,25 +17,25 @@ import { getArticles } from "../controller/ArticleController";
 function ListeArticles(){
 
 
-    const [recherche,setRecherche] = useState("");
+    const [recherche, setRecherche] = useState("");
 
 
-
-    const articles = getArticles();
+    const [articles] = useState(getArticles());
 
 
 
     const articlesFiltres = articles.filter(article =>
 
         article.nom
-        .toLowerCase()
-        .includes(recherche.toLowerCase())
+            .toLowerCase()
+            .includes(recherche.toLowerCase())
 
     );
 
 
 
-    const choisirIcone = (nom:string)=>{
+
+    const choisirIcone = (nom: string) => {
 
 
         const nomArticle = nom.toLowerCase();
@@ -46,7 +44,7 @@ function ListeArticles(){
 
         if(nomArticle.includes("ordinateur")){
 
-            return <FaLaptop/>;
+            return <FaLaptop />;
 
         }
 
@@ -54,7 +52,7 @@ function ListeArticles(){
 
         if(nomArticle.includes("clavier")){
 
-            return <FaKeyboard/>;
+            return <FaKeyboard />;
 
         }
 
@@ -62,7 +60,7 @@ function ListeArticles(){
 
         if(nomArticle.includes("souris")){
 
-            return <FaMouse/>;
+            return <FaMouse />;
 
         }
 
@@ -70,7 +68,7 @@ function ListeArticles(){
 
         if(nomArticle.includes("imprimante")){
 
-            return <FaPrint/>;
+            return <FaPrint />;
 
         }
 
@@ -78,16 +76,16 @@ function ListeArticles(){
 
         if(nomArticle.includes("disque")){
 
-            return <FaHdd/>;
+            return <FaHdd />;
 
         }
 
 
 
-        return <FaLaptop/>;
-
+        return <FaLaptop />;
 
     };
+
 
 
 
@@ -103,10 +101,6 @@ function ListeArticles(){
                     Liste des articles
                 </h1>
 
-                <p>
-                    Matériels informatiques disponibles
-                </p>
-
             </div>
 
 
@@ -115,7 +109,8 @@ function ListeArticles(){
             <div className="search-container">
 
 
-                <FaSearch/>
+                <FaSearch />
+
 
 
                 <input
@@ -126,7 +121,7 @@ function ListeArticles(){
 
                     value={recherche}
 
-                    onChange={(e)=>
+                    onChange={(e) =>
                         setRecherche(e.target.value)
                     }
 
@@ -144,50 +139,51 @@ function ListeArticles(){
 
                 {
 
-                articlesFiltres.map(article => (
+                    articlesFiltres.map(article => (
 
 
-                    <div 
-                    className="article-card"
-                    key={article.id}
-                    >
+                        <div
+
+                            className="article-card"
+
+                            key={article.id}
+
+                        >
 
 
 
-                        <div className="article-icon">
+                            <div className="article-icon">
 
-                            {choisirIcone(article.nom)}
+                                {choisirIcone(article.nom)}
+
+                            </div>
+
+
+
+
+                            <h2>
+
+                                {article.nom}
+
+                            </h2>
+
+
+
+
+                            <div className="article-price">
+
+                                {article.prix.toLocaleString()} Ar
+
+                            </div>
+
+
 
                         </div>
 
 
-
-
-                        <h2>
-
-                            {article.nom}
-
-                        </h2>
-
-
-
-
-                        <div className="article-price">
-
-                            {article.prix.toLocaleString()} Ar
-
-                        </div>
-
-
-
-                    </div>
-
-
-                ))
-
+                    ))
 
                 }
-
 
 
             </div>
@@ -197,7 +193,6 @@ function ListeArticles(){
         </div>
 
     );
-
 
 }
 

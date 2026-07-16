@@ -4,7 +4,6 @@ import "./navbar.css";
 function Navbar() {
   return (
     <nav className="navbar">
-
       <NavLink
         to="/"
         className={({ isActive }) =>
@@ -24,21 +23,12 @@ function Navbar() {
       </NavLink>
 
       <NavLink
-        to="/vente"
-        className={({ isActive }) =>
-          isActive ? "nav-link active" : "nav-link"
-        }
-      >
-        Vente
-      </NavLink>
-
-      <NavLink
         to="/factures"
         className={({ isActive }) =>
           isActive ? "nav-link active" : "nav-link"
         }
       >
-        Factures
+        Paiement & Facture
       </NavLink>
 
       <NavLink
@@ -49,7 +39,14 @@ function Navbar() {
       >
         Recettes
       </NavLink>
-
+      <NavLink
+        to="/recettes"
+        className={({ isActive }) =>
+          isActive ? "nav-link active" : "nav-link"
+        }
+      >
+        Historique
+      </NavLink>
     </nav>
   );
 }

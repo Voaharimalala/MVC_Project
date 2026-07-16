@@ -5,5 +5,6 @@ export interface Article {
     nom: string;
 
     prix: number;
+    dateAjout: string;
 
 }
