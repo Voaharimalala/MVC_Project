@@ -2,6 +2,13 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./AddArticle.css";
 
+import {
+  FaPlus,
+  FaCalendarAlt,
+  FaBoxes,
+  FaTag
+} from "react-icons/fa";
+
 function AddArticle() {
   
   const navigate = useNavigate();
@@ -51,7 +58,7 @@ function AddArticle() {
     <div className="add-page">
 
 
-      <div className="header-page">
+      <div className="form-header">
 
         <h1>
           Ajouter un article
@@ -69,62 +76,77 @@ function AddArticle() {
 
           <div className="form-group">
 
-            <label>
-              Nom de l'article
-            </label>
+  <label>Nom de l'article</label>
 
-            <input
-              type="text"
-              placeholder="Nom de l'article"
-              value={nom}
-              onChange={(e)=>setNom(e.target.value)}
-              required
-            />
+  <div className="input-icon">
 
-          </div>
+    <FaTag className="icon" />
+
+    <input
+      type="text"
+      placeholder="Nom de l'article"
+      value={nom}
+      onChange={(e) => setNom(e.target.value)}
+      required
+    />
+
+  </div>
+
+</div>
 
 
 
 
           <div className="form-group">
 
-            <label>
-              Date d'ajout
-            </label>
+           <label>Date d'ajout</label>
 
-            <input
+           <div className="input-icon">
+
+             <FaCalendarAlt className="icon"/>
+
+             <input
               type="date"
               value={dateAjout}
               onChange={(e)=>setDateAjout(e.target.value)}
               required
             />
 
-          </div>
+           </div>
 
+          </div>
 
 
 
           <div className="form-group">
 
-            <label>
-              Stock initial
-            </label>
+            <label>Stock initial</label>
 
-            <input
-  type="number"
-  value={stockInitial}
-  onChange={(e) =>
-    setStockInitial(e.target.value)
-  }
-  min="0"
-  required
-/>
+            <div className="input-icon">
+
+              <FaBoxes className="icon" />
+
+              <input
+                type="number"
+                placeholder="Quantité"
+                value={stockInitial}
+                onChange={(e) => setStockInitial(e.target.value)}
+                min="0"
+                required
+              />
+
+             </div>
 
           </div>
 
 
 
-          <button className="submit-btn">
+          <button
+            type="submit"
+            className="submit-btn"
+          >
+
+            <FaPlus />
 
             Ajouter l'article
 
