@@ -1,19 +1,12 @@
-import {viewHistorique} from "./view/ViewHistorique.tsx";
-import './App.css';
+import Historique from "./views/Historique";
+
 
 function App() {
-  return(
-    <div className="App">
-      <header className="App-header">
-        <h1>Gestion de stocks</h1>
-      </header>
-      <main className="App-main">
-        {viewHistorique()}
 
-      </main>
-    </div>
+  return (
+    <Historique />
   );
 
-
 }
+
 export default App;

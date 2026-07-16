@@ -1,0 +1,226 @@
+/* =========================
+   BARRE DE RECHERCHE
+========================= */
+
+.search-bar {
+  background: white;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+
+.search-bar input {
+
+  width: 600px;
+  max-width: 100%;
+
+  padding: 14px 20px;
+
+  border: 1px solid #ccc;
+  border-radius: 8px;
+
+  font-size: 16px;
+
+}
+
+
+/* =========================
+   CARTE HISTORIQUE
+========================= */
+
+.historique-card {
+
+  max-width: 1200px;
+
+  margin: 40px auto;
+
+  background: white;
+
+  padding: 40px;
+
+  border-radius: 10px;
+
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+
+}
+
+
+.historique-card h2 {
+
+  margin-bottom: 30px;
+
+  font-size: 24px;
+
+}
+
+
+/* =========================
+   TABLEAU
+========================= */
+
+table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+}
+
+
+thead {
+
+  background-color: #2c3e50;
+
+  color: white;
+
+}
+
+
+th {
+
+  padding: 18px;
+
+  text-align: left;
+
+}
+
+
+td {
+
+  padding: 18px;
+
+}
+
+
+/* lignes alternées */
+
+tbody tr:nth-child(even) {
+
+  background-color: #f8f9fa;
+
+}
+
+
+tbody tr:nth-child(odd) {
+
+  background-color: white;
+
+}
+
+
+
+/* =========================
+   ICÔNES DANS ACTION
+========================= */
+
+
+.action-icon {
+
+  width: 35px;
+
+  height: 35px;
+
+  border-radius: 50%;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: white;
+
+  font-weight: bold;
+
+  margin-right: 8px;
+
+}
+
+
+
+/* Couleurs des actions */
+
+.action-icon.Connexion {
+
+  background-color: #27ae60;
+
+}
+
+
+.action-icon.Ajout {
+
+  background-color: #3498db;
+
+}
+
+
+.action-icon.Vente {
+
+  background-color: #5dade2;
+
+}
+
+
+.action-icon.Modification {
+
+  background-color: #f1c40f;
+
+}
+
+
+.action-icon.Suppression {
+
+  background-color: #e74c3c;
+
+}
+
+
+.action-icon.Déconnexion {
+
+  background-color: #7f8c8d;
+
+}
+
+
+
+/* =========================
+   PAGINATION
+========================= */
+
+
+.pagination {
+
+  margin-top: 40px;
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 10px;
+
+}
+
+
+.pagination button {
+
+  padding: 10px 15px;
+
+  border: none;
+
+  border-radius: 5px;
+
+  background-color: #2c3e50;
+
+  color: white;
+
+  cursor: pointer;
+
+}
+
+
+.pagination button:hover {
+
+  opacity: 0.8;
+
+}
